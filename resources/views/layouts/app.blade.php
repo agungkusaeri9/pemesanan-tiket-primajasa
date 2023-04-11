@@ -32,15 +32,15 @@
 
     <x-Frontend.Footer />
 
-    <script src="{{ asset('assets/fe/assets/js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('assets/fe/js/jquery-3.5.1.min.js') }}"></script>
 
-    <script src="{{ asset('assets/fe/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/fe/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('assets/fe/assets/js/google-maps.js') }}"></script>
+    <script src="{{ asset('assets/fe/js/google-maps.js') }}"></script>
 
     <script src="{{ asset('assets/fe/assets/vendor/wow/wow.min.js') }}"></script>
 
-    <script src="{{ asset('assets/fe/assets/js/theme.js') }}"></script>
+    <script src="{{ asset('assets/fe/js/theme.js') }}"></script>
     @stack('scripts')
 </body>
 
