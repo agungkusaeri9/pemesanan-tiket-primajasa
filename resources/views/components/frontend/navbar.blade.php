@@ -33,7 +33,15 @@
                         @guest
                             <li class="nav-item">
                                 <a class="btn btn-outline-danger ml-lg-2" href="{{ route('login') }}">Masuk</a>
-                                <a class="btn btn-danger ml-lg-2" href="#">Daftar</a>
+                                <a class="btn btn-danger ml-lg-2" href="{{ route('register') }}">Daftar</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="btn btn-outline-danger ml-lg-2" href="javascript:void(0)"
+                                    onclick="document.getElementById('formLogout').submit()">Keluar</a>
+                                <form action="{{ route('logout') }}" method="post" id="formLogout">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>

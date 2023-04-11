@@ -27,7 +27,7 @@
                                             <label class="form-label" for="email">Email</label>
                                             <input type="email" id="email"
                                                 class="form-control @error('email') is-invalid @enderror"
-                                                placeholder="Email Address" />
+                                                placeholder="Email Address" name="email" />
                                             @error('email')
                                                <div class="invalid-feedback">
                                                 {{ $message }}
@@ -39,7 +39,7 @@
                                             <label class="form-label" for="password">Password</label>
                                             <input type="password" id="password"
                                                 class="form-control @error('password') is-invalid @enderror"
-                                                placeholder="Password" />
+                                                placeholder="Password" name="password"/>
                                             @error('password')
                                                <div class="invalid-feedback">
                                                 {{ $message }}
