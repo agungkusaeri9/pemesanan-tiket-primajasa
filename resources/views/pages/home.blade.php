@@ -7,10 +7,10 @@
                     <h1 class="mb-4">Perjalanan Nyaman Dengan Harga Terjangkau Bersama Kami</h1>
                     <p class="text-lg text-grey mb-5">Melayani lebih dari 20 rute Antar Kota Dalam Provinsi (AKDP) dan Antar
                         Kota dan Antar Provinsi (AKAP) untuk wilayah di Jabodetabek, Banten, dan Jawa Barat</p>
-                    <a href="#" class="btn btn-secondary buy-tiket">
+                    <a href="#" class="btn btn-danger px-4 py-2">
                         Beli Tiket
                     </a>
-                    <a href="#" class="ml-4">Lihat Selengkapnya</a>
+                    <a href="#" class="ml-4 text-danger">Lihat Selengkapnya</a>
                 </div>
                 <div class="col-md-6 py-5 wow zoomIn">
                     <div class="img-fluid text-center">
@@ -18,13 +18,13 @@
                     </div>
                 </div>
             </div>
-            <a href="#about" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
+            <a href="#why" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
         </div>
     </div>
     </header>
 
-    <div class="container">
-        <div class="row mb-4">
+    <div class="container mt-4">
+        <div class="row mb-4" id="why">
             <div class="col-md-12">
                 <h1 class="text-center"><strong>Kenapa Harus Primajasa</strong></h1>
                 <p class="text-center">Selain Menyediakan jasa transportasi yang berdiri sejak tahun 1991, inilah
