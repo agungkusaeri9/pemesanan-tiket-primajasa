@@ -1,54 +1,72 @@
 @extends('layouts.app')
 @section('content')
-    <!-- new collection section start -->
-    <div class="layout_padding collection_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="new_text"><strong>Kenapa Harus Primajasa</strong></h1>
-                    <p class="consectetur_text">Selain Menyediakan jasa transportasi yang berdiri sejak tahun 1991, inilah
-                        alasan mengapa anda harus memilih kami</p>
+    <div class="container">
+        <div class="page-banner home-banner">
+            <div class="row align-items-center flex-wrap-reverse h-100">
+                <div class="col-md-6 py-5 wow fadeInLeft">
+                    <h1 class="mb-4">Perjalanan Nyaman Dengan Harga Terjangkau Bersama Kami</h1>
+                    <p class="text-lg text-grey mb-5">Melayani lebih dari 20 rute Antar Kota Dalam Provinsi (AKDP) dan Antar
+                        Kota dan Antar Provinsi (AKAP) untuk wilayah di Jabodetabek, Banten, dan Jawa Barat</p>
+                    <a href="#" class="btn btn-secondary buy-tiket">
+                        Beli Tiket
+                    </a>
+                    <a href="#" class="ml-4">Lihat Selengkapnya</a>
+                </div>
+                <div class="col-md-6 py-5 wow zoomIn">
+                    <div class="img-fluid text-center">
+                        <img src="{{ asset('assets/fe/img/homepage.png') }}" class="img-fluid" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/fe/images/pengalaman.png') }}">
-                    <h1>Berpengalaman</h1>
-                    <h2>Kami telah berpengalaman sejak tahun 1991 melayani masyarakat
-                        dengan menyediakan jasa transportasi </h2>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/fe/images/ekonomis.png') }}">
-                    <h1>Ekonomis</h1>
-                    <h2>Tarif yang murah, pasti, dan transparan. Selalu menjadi yang terdepan untuk memberikan
-                        pelayanan yang prima kepada semua penumpang.</h2>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/fe/images/percaya .png') }}">
-                    <h1>Terpercaya</h1>
-                    <h2>Komitmen kami untuk memberikan rasa aman dan nyaman dalam perjalanan anda.</h2>
-                </div>
-            </div>
-
+            <a href="#about" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
         </div>
+    </div>
+    </header>
 
-        <div class="collection_section_2 mt-4">
-            <div class="container">
-               <div class="row">
-                <div class="col-md-6">
-                    {{-- <div class="about-img">
-                    </div> --}}
-                    <img src="{{ asset('assets/fe/images/orang.png') }}" class="img-fluid">
-                </div>
-                <div class="col-md-6">
-                    <h1>Terpercaya</h1>
-                    <h2>Komitmen kami untuk memberikan rasa aman dan nyaman dalam perjalanan anda.</h2>
-                </div>
-               </div>
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1 class="text-center"><strong>Kenapa Harus Primajasa</strong></h1>
+                <p class="text-center">Selain Menyediakan jasa transportasi yang berdiri sejak tahun 1991, inilah
+                    alasan mengapa anda harus memilih kami</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="{{ asset('assets/fe/img/pengalaman.png') }}">
+                <h4 class="mb-3 mt-2">Berpengalaman</h4>
+                <p>Kami telah berpengalaman sejak tahun 1991 melayani masyarakat
+                    dengan menyediakan jasa transportasi </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{{ asset('assets/fe/img/ekonomis.png') }}">
+                <h4 class="mb-3 mt-2">Ekonomis</h4>
+                <p>Tarif yang murah, pasti, dan transparan. Selalu menjadi yang terdepan untuk memberikan
+                    pelayanan yang prima kepada semua penumpang.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{{ asset('assets/fe/img/percaya .png') }}">
+                <h4 class="mb-3 mt-2">Terpercaya</h4>
+                <p>Komitmen kami untuk memberikan rasa aman dan nyaman dalam perjalanan anda.</p>
             </div>
         </div>
     </div>
-    <div class="collection_section">
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                {{-- <div class="about-img">
+            </div> --}}
+                <img src="{{ asset('assets/fe/img/orang.png') }}" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h1>Terpercaya</h1>
+                <h2>Komitmen kami untuk memberikan rasa aman dan nyaman dalam perjalanan anda.</h2>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="collection_section">
         <div class="container">
             <h1 class="new_text"><strong>Racing Boots</strong></h1>
             <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -60,7 +78,7 @@
             <div class="racing_shoes">
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="shoes-img3"><img src="{{ asset('assets/fe/images/shoes-img3.png') }}"></div>
+                        <div class="shoes-img3"><img src="{{ asset('assets/fe/img/shoes-img3.png') }}"></div>
                     </div>
                     <div class="col-md-4">
                         <div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">JOGING</span>
@@ -87,15 +105,16 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Best Shoes </p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img4.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img4.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a></li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a></li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a></li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a></li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a></li>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a></li>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a></li>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
+                                    </li>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -108,19 +127,19 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Best Shoes </p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img5.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img5.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -133,19 +152,19 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Best Shoes </p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img6.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img6.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -160,19 +179,19 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Sports Shoes</p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img7.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img7.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -185,19 +204,19 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Sports Shoes</p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img8.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img8.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -210,19 +229,19 @@
                 <div class="col-sm-4">
                     <div class="best_shoes">
                         <p class="best_text">Sports Shoes</p>
-                        <div class="shoes_icon"><img src="{{ asset('assets/fe/images/shoes-img9.png') }}"></div>
+                        <div class="shoes_icon"><img src="{{ asset('assets/fe/img/shoes-img9.png') }}"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
-                                    <li><a href="#"><img src="{{ asset('assets/fe/images/star-icon.png') }}"></a>
+                                    <li><a href="#"><img src="{{ asset('assets/fe/img/star-icon.png') }}"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -330,5 +349,17 @@
             </div>
         </div>
     </div>
-    <!-- section footer end -->
+    <!-- section footer end --> --}}
 @endsection
+@push('styles')
+    <style>
+        .buy-tiket {
+            width: 32%;
+            height: 50px;
+            color: #ffffff;
+            background-color: #ff4e5b;
+            color: #ffffff;
+            font-size: 16pt;
+        }
+    </style>
+@endpush
