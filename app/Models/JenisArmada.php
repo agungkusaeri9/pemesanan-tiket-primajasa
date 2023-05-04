@@ -21,4 +21,9 @@ class JenisArmada extends Model
     {
         return $this->hasMany(Fasilitas::class,'jenis_armada_id','id');
     }
+
+    public function jadwal()
+    {
+        return $this->hasMany(Jadwal::class,'jenis_armada_id','id');
+    }
 }

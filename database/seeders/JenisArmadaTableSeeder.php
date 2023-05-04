@@ -26,6 +26,15 @@ class JenisArmadaTableSeeder extends Seeder
         $armada1->fasilitas()->create(['fasilitas' => 'Leg Rest']);
         $armada1->fasilitas()->create(['fasilitas' => 'Air Minum']);
 
+        // jadwal
+        $armada1->jadwal()->create(['pemberangkatan' => 'Bandung', 'tujuan' => 'Jakarta', 'jam_berangkat' => '06.00', 'jam_sampai' => '09.00', 'harga_dewasa' => 20000, 'harga_anak_anak' => 5000]);
+
+        $armada1->jadwal()->create(['pemberangkatan' => 'Jakarta', 'tujuan' => 'Bandung', 'jam_berangkat' => '10.00', 'jam_sampai' => '13.00', 'harga_dewasa' => 20000, 'harga_anak_anak' => 5000]);
+
+        $armada1->jadwal()->create(['pemberangkatan' => 'Bandung', 'tujuan' => 'Bekasi', 'jam_berangkat' => '16.00', 'jam_sampai' => '18.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 8000]);
+
+        $armada1->jadwal()->create(['pemberangkatan' => 'Bekasi', 'tujuan' => 'Bandung', 'jam_berangkat' => '20.00', 'jam_sampai' => '22.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 8000]);
+
         $armada2 = JenisArmada::create([
             'jenis_armada' => 'Angkutan Pemadu Moda',
             'supir' => 'Tedi Sopandi',
@@ -37,6 +46,15 @@ class JenisArmadaTableSeeder extends Seeder
         $armada2->fasilitas()->create(['fasilitas' => 'TV']);
         $armada2->fasilitas()->create(['fasilitas' => 'Leg Rest']);
         $armada2->fasilitas()->create(['fasilitas' => 'Air Minum']);
+
+        // jadwal
+        $armada2->jadwal()->create(['pemberangkatan' => 'Tangerang Selatan', 'tujuan' => 'Karawang', 'jam_berangkat' => '06.00', 'jam_sampai' => '09.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 5000]);
+
+        $armada2->jadwal()->create(['pemberangkatan' => 'Depok', 'tujuan' => 'Tangerang Selatan', 'jam_berangkat' => '09.00', 'jam_sampai' => '11.00', 'harga_dewasa' => 40000, 'harga_anak_anak' => 5000]);
+
+        $armada2->jadwal()->create(['pemberangkatan' => 'Tangerang Selatan', 'tujuan' => 'jakarta Utara', 'jam_berangkat' => '13.00', 'jam_sampai' => '15.00', 'harga_dewasa' => 50000, 'harga_anak_anak' => 8000]);
+
+        $armada2->jadwal()->create(['pemberangkatan' => 'Jakarta Utara', 'tujuan' => 'Tangerang Selatan', 'jam_berangkat' => '17.00', 'jam_sampai' => '19.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 8000]);
 
         $armada3 = JenisArmada::create([
             'jenis_armada' => 'Bus Pariwisata',
@@ -51,6 +69,9 @@ class JenisArmadaTableSeeder extends Seeder
         $armada3->fasilitas()->create(['fasilitas' => 'Air Minum']);
         $armada3->fasilitas()->create(['fasilitas' => 'TV']);
 
+        // jadwal
+        $armada3->jadwal()->create(['pemberangkatan' => 'Karawang', 'tujuan' => 'Bekasi', 'jam_berangkat' => '07.00', 'jam_sampai' => '09.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
 
+        $armada3->jadwal()->create(['pemberangkatan' => 'Bekasi', 'tujuan' => 'Karawang', 'jam_berangkat' => '11.00', 'jam_sampai' => '113.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
     }
 }

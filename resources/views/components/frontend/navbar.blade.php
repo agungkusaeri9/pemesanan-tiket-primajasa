@@ -20,7 +20,7 @@
                             <a class="nav-link" href="{{ route('layanan.index') }}">Layanan</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="">Tiket</a>
+                            <a class="nav-link" href="{{ route('tiket.index') }}">Tiket</a>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
