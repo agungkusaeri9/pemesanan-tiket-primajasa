@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/fe/css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fe/css/style.css') }}">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
 </head>
