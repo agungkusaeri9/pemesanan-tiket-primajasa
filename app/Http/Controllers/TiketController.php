@@ -33,12 +33,12 @@ class TiketController extends Controller
         $anak = request('anak');
         $dewasa = request('dewasa');
         $tanggal = Carbon::parse(request('tanggal'))->translatedFormat('l, d F Y');
-        $jadwal = Jadwal::where('jenis_armada_id',$armada_id)->where('pemberangkatan',$pemberangkatan)->where('tujuan',$tujuan)->firstOrFail();
+        if($armada_id){
+            $jadwal = Jadwal::with('armada')->where('jenis_armada_id',$armada_id)->where('pemberangkatan',$pemberangkatan)->where('tujuan',$tujuan)->firstOrFail();
+        }else{
+            $jadwal = Jadwal::with('armada')->where('pemberangkatan',$pemberangkatan)->where('tujuan',$tujuan)->get();
+        }
 
-        // if($anak < 1 || $dewasa < 1)
-        // {
-        //     return redirect()->back()->with('error','Silahkan masukan jumlah orang dewasa atau anak');
-        // }
 
         return view('pages.tiket.detail',[
             'title' => 'Pemesanan Tiket Detail',

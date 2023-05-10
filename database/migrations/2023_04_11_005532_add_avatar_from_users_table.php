@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nomor_telepon')->nullable();
             $table->string('kewarganegaraan')->nullable();
             $table->string('kota')->nullable();
-            $table->string('role')->nullable()->after('password');
+            $table->enum('role',['admin','user'])->default('user')->after('password');
             $table->string('avatar')->nullable()->after('role');
         });
     }

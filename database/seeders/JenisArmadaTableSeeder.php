@@ -73,5 +73,43 @@ class JenisArmadaTableSeeder extends Seeder
         $armada3->jadwal()->create(['pemberangkatan' => 'Karawang', 'tujuan' => 'Bekasi', 'jam_berangkat' => '07.00', 'jam_sampai' => '09.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
 
         $armada3->jadwal()->create(['pemberangkatan' => 'Bekasi', 'tujuan' => 'Karawang', 'jam_berangkat' => '11.00', 'jam_sampai' => '113.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
+
+
+        $armada4 = JenisArmada::create([
+            'jenis_armada' => 'Bus Angkutan Umum',
+            'supir' => 'Irna Nurmayanti',
+            'gambar' => NULL
+        ]);
+
+        $armada4->fasilitas()->create(['fasilitas' => 'Layout Kursi 2 - 2']);
+        $armada4->fasilitas()->create(['fasilitas' => 'Reclining Seat']);
+        $armada4->fasilitas()->create(['fasilitas' => 'Leg Rest']);
+        $armada4->fasilitas()->create(['fasilitas' => 'Air Minum']);
+        $armada4->fasilitas()->create(['fasilitas' => 'TV']);
+
+        // jadwal
+        $armada4->jadwal()->create(['pemberangkatan' => 'Karawang', 'tujuan' => 'Bekasi', 'jam_berangkat' => '07.00', 'jam_sampai' => '09.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
+
+        $armada4->jadwal()->create(['pemberangkatan' => 'Bekasi', 'tujuan' => 'Karawang', 'jam_berangkat' => '11.00', 'jam_sampai' => '113.00', 'harga_dewasa' => 25000, 'harga_anak_anak' => 5000]);
+
+        $armada5 = JenisArmada::create([
+            'jenis_armada' => 'Angkutan Boyo Lali',
+            'supir' => 'Agus Setiawan',
+            'gambar' => NULL
+        ]);
+
+        $armada5->fasilitas()->create(['fasilitas' => 'AC']);
+        $armada5->fasilitas()->create(['fasilitas' => 'Layout Kursi 2 - 2']);
+        $armada5->fasilitas()->create(['fasilitas' => 'TV']);
+        $armada5->fasilitas()->create(['fasilitas' => 'Air Minum']);
+
+        // jadwal
+        $armada5->jadwal()->create(['pemberangkatan' => 'Tangerang Selatan', 'tujuan' => 'Karawang', 'jam_berangkat' => '07.00', 'jam_sampai' => '10.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 5000]);
+
+        $armada5->jadwal()->create(['pemberangkatan' => 'Depok', 'tujuan' => 'Tangerang Selatan', 'jam_berangkat' => '09.00', 'jam_sampai' => '11.00', 'harga_dewasa' => 40000, 'harga_anak_anak' => 5000]);
+
+        $armada5->jadwal()->create(['pemberangkatan' => 'Tangerang Selatan', 'tujuan' => 'jakarta Utara', 'jam_berangkat' => '13.00', 'jam_sampai' => '15.00', 'harga_dewasa' => 50000, 'harga_anak_anak' => 8000]);
+
+        $armada5->jadwal()->create(['pemberangkatan' => 'Jakarta Utara', 'tujuan' => 'Tangerang Selatan', 'jam_berangkat' => '17.00', 'jam_sampai' => '19.00', 'harga_dewasa' => 30000, 'harga_anak_anak' => 8000]);
     }
 }

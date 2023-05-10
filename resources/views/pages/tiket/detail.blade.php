@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <h2>{{ $jadwal->pemberangkatan }} -> {{ $jadwal->tujuan }}</h2>
+                <h2>{{ $pemberangkatan }} -> {{ $tujuan }}</h2>
 
             </div>
         </div>
@@ -30,14 +30,15 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card">
+                @foreach ($jadwal as $jdw)
+                <div class="card mb-3">
                     <div class="card-body">
-                        <h4>{{ $jadwal->armada->jenis_armada }}</h4>
+                        <h4>{{ $jdw->armada->jenis_armada }}</h4>
                         <h5 class="text-muted">Super Excecutive</h5>
                         <div class="row mt-4">
                             <div class="col-md-3">
-                                <h5>{{ $jadwal->jam_berangkat }}</h5>
-                                <h6 class="text-muted">{{ $jadwal->pemberangkatan }}</h6>
+                                <h5>{{ $jdw->jam_berangkat }}</h5>
+                                <h6 class="text-muted">{{ $jdw->pemberangkatan }}</h6>
                             </div>
                             <div class="col-1">
                                 <span style="font-size:40px">
@@ -45,10 +46,10 @@
                                 </span>
                             </div>
                             <div class="col-md-3">
-                                <h5>{{ $jadwal->jam_sampai }}</h5>
-                                <h6 class="text-muted">{{ $jadwal->tujuan }}</h6>
+                                <h5>{{ $jdw->jam_sampai }}</h5>
+                                <h6 class="text-muted">{{ $jdw->tujuan }}</h6>
                             </div>
-                            <div class="col-md-3"><h4><span>&#124;</span> Rp. {{ number_format($jadwal->harga_dewasa,0,'','.') }}</h4></div>
+                            <div class="col-md-3"><h4><span>&#124;</span> Rp. {{ number_format($jdw->harga_dewasa,0,'','.') }}</h4></div>
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -65,12 +66,17 @@
                                 </ul>
                             </div>
                             <div class="col-6 justify-content-end">
-                                <button class="btn btn-danger">Beli Sekarang</button>
+                                <a href="{{ route('pesanan.create',[
+                                    'idjadwal' => $jdw->id,
+                                    'jml_anak' => $anak,
+                                    'jml_dewasa' => $dewasa,
+                                    'tanggal' => request('tanggal')
+                                ]) }}" class="btn btn-danger">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                @endforeach
             </div>
         </div>
     </div>

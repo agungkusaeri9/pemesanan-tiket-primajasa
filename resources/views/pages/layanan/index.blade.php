@@ -42,6 +42,59 @@
                 </p>
             </div>
         </div>
+        <div class="row justify-content-center mt-4 mb-4">
+            <div class="col-md-4 align-item-center">
+                <h5>Fitur</h5>
+                <h3 class="text-primary">Mengapa Primajasa Lebih Unggul dari yang lain?</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illum laborum quas asperiores quae eum, doloremque itaque, ipsum odio amet veritatis, sit distinctio facilis possimus iure incidunt mollitia voluptatum nesciunt voluptates beatae animi similique ex! Possimus, blanditiis omnis. Officiis facere quas libero nam, voluptatibus eligendi praesentium nemo dolorum ab animi!
+                </p>
+                <a href="" class="btn btn-danger">Selengkapnya</a>
+            </div>
+            <div class="col-md-4">
+                <div class="row mt-1">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Rute Cepat</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque nemo voluptates, soluta error dolorem dignissimos repudiandae cumque explicabo voluptatum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Terpercaya</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque nemo voluptates, soluta error dolorem dignissimos repudiandae cumque explicabo voluptatum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Proses Refund Mudah</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque nemo voluptates, soluta error dolorem dignissimos repudiandae cumque explicabo voluptatum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <img src="{{ asset('assets/fe/img/l1.png') }}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('assets/fe/img/l2.png') }}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('assets/fe/img/l3.png') }}" alt="" class="img-fluid">
+            </div>
+        </div>
     </div>
 @endsection
 @push('styles')

@@ -26,7 +26,7 @@
                             <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">FAQ</a>
+                            <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">

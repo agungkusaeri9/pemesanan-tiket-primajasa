@@ -11,7 +11,12 @@ class JadwalController extends Controller
     {
         $armada_id = request('armada_id');
 
-        $jadwal = Jadwal::select('pemberangkatan')->where('jenis_armada_id',$armada_id)->groupBy('pemberangkatan')->get();
+        if($armada_id)
+        {
+            $jadwal = Jadwal::select('pemberangkatan')->where('jenis_armada_id',$armada_id)->groupBy('pemberangkatan')->get();
+        }else{
+            $jadwal = Jadwal::select('pemberangkatan')->groupBy('pemberangkatan')->get();
+        }
         if($jadwal){
             return response()->json([
                 'status' => 'success',
@@ -29,7 +34,12 @@ class JadwalController extends Controller
     {
         $armada_id = request('armada_id');
         $pemberangkatan = request('pemberangkatan');
-        $jadwal = Jadwal::select('tujuan')->where('jenis_armada_id',$armada_id)->where('pemberangkatan',$pemberangkatan)->groupBy('tujuan')->get();
+        if($armada_id)
+        {
+            $jadwal = Jadwal::select('tujuan')->where('jenis_armada_id',$armada_id)->where('pemberangkatan',$pemberangkatan)->groupBy('tujuan')->get();
+        }else{
+            $jadwal = Jadwal::select('tujuan')->where('pemberangkatan',$pemberangkatan)->groupBy('tujuan')->get();
+        }
         if($jadwal){
             return response()->json([
                 'status' => 'success',
