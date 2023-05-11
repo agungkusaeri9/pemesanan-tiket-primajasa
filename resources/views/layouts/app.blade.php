@@ -44,6 +44,7 @@
 
     <script src="{{ asset('assets/fe/js/theme.js') }}"></script>
     @stack('scripts')
+    <x-Frontend.Alert/>
 </body>
 
 </html>

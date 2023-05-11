@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('armada_jadwal', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_armada_id')->constrained('jenis_armada')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('terminal_pemberangkatan');
             $table->string('pemberangkatan');
             $table->string('tujuan');
+            $table->string('terminal_tujuan');
             $table->string('jam_berangkat');
             $table->string('jam_sampai');
             $table->bigInteger('harga_dewasa')->nullable();

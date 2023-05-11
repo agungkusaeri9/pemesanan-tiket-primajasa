@@ -35,6 +35,7 @@ Route::get('tiket/detail/',[TiketController::class,'detail'])->name('pemesanan-t
 Route::get('pesanan/create/{idjadwal}/{jml_dewasa}/{jml_anak}/{tanggal}',[PesananController::class,'create'])->name('pesanan.create');
 
 Route::middleware('auth')->group(function(){
+    Route::post('pesanan/create',[PesananController::class,'store'])->name('pesanan.store');
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');
     Route::post('profile',[ProfileController::class,'update'])->name('profile.update');
 });
