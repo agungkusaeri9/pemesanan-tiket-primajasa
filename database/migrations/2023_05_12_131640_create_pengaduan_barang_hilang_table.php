@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pesanan', function (Blueprint $table) {
+        Schema::create('pengaduan_barang_hilang', function (Blueprint $table) {
             $table->id();
-            $table->string('kode')->unique();
-            $table->string('nama');
-            $table->integer('metode_pembayaran')->nullable();
-            $table->bigInteger('total');
-            $table->integer('status');
-            $table->bigInteger('convenience_fee')->default(0);
-            $table->bigInteger('handling_fee')->default(0);
-            $table->integer('armada_jadwal_id')->nullable();
             $table->date('tanggal_berangkat');
+            $table->foreignId('armada_jadwal_id')->constrained('armada_jadwal')->cascadeOnDelete();
+            $table->string('nama_barang');
+            $table->string('foto_barang')->nullable();
+            $table->enum('status',[0,1,2,3])->default(0);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pesanan');
+        Schema::dropIfExists('pengaduan_barang_hilang');
     }
 };

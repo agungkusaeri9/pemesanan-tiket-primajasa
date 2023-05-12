@@ -5,6 +5,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PengaduanBarangHilang;
+use App\Http\Controllers\PengaduanBarangHilangController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TiketController;
@@ -35,6 +37,9 @@ Route::get('tiket/detail/',[TiketController::class,'detail'])->name('pemesanan-t
 Route::get('pesanan/create/{idjadwal}/{jml_dewasa}/{jml_anak}/{tanggal}',[PesananController::class,'create'])->name('pesanan.create');
 
 Route::middleware('auth')->group(function(){
+    Route::get('pengaduan-barang-hilang',[PengaduanBarangHilangController::class,'index'])->name('pengaduan-barang-hilang.index');
+    Route::get('pengaduan-barang-hilang/create',[PengaduanBarangHilangController::class,'create'])->name('pengaduan-barang-hilang.create');
+    Route::post('pengaduan-barang-hilang/create',[PengaduanBarangHilangController::class,'store'])->name('pengaduan-barang-hilang.store');
     Route::post('pesanan/create',[PesananController::class,'store'])->name('pesanan.store');
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');
     Route::post('profile',[ProfileController::class,'update'])->name('profile.update');

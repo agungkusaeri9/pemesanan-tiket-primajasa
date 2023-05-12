@@ -28,8 +28,8 @@ class PesananController extends Controller
     public function store()
     {
 
-        DB::beginTransaction();
         try {
+            DB::beginTransaction();
             $data_penumpang = request('penumpang_nama_lengkap');
             $armada_jadwal_id = request('armada_jadwal_id');
             $jadwal = Jadwal::findOrFail($armada_jadwal_id);
@@ -49,7 +49,8 @@ class PesananController extends Controller
                 'handling_fee' => $handling_fee_default,
                 'armada_jadwal_id' => $armada_jadwal_id,
                 'status' => 0,
-                'tanggal_berangkat' => request('tanggal')
+                'tanggal_berangkat' => request('tanggal'),
+                'user_id' => auth()->id()
             ]);
 
             $data_nik = request('penumpang_nik');

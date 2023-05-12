@@ -15,4 +15,9 @@ class Pesanan extends Model
     {
         return $this->hasMany(PesananDetail::class,'pesanan_id','id');
     }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(Jadwal::class,'armada_jadwal_id','id');
+    }
 }
