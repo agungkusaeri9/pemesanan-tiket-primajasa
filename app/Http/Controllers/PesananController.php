@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Helpers;
+use App\Models\MetodePembayaran;
 
 class PesananController extends Controller
 {
@@ -69,10 +70,45 @@ class PesananController extends Controller
                 ]);
             }
             DB::commit();
-            return redirect()->back()->with('success', 'Anda berhasil memesan tiket. Silahkan lakukan pembayaran.');
+            return redirect()->route('pesanan.success',encrypt($pesanan->kode))->with('success', 'Anda berhasil memesan tiket. Silahkan lakukan pembayaran.');
         } catch (\Throwable $th) {
             throw $th;
             DB::rollBack();
         }
+    }
+
+    public function success($kode_pesanan_enkripsi)
+    {
+        $pesanan = Pesanan::where('kode',decrypt($kode_pesanan_enkripsi))->firstOrFail();
+        return view('pages.pesanan.success',[
+            'title' => 'Rincian Pembayaran',
+            'pesanan' => $pesanan,
+            'metode_pembayaran' => MetodePembayaran::get()
+        ]);
+    }
+
+    public function update($id)
+    {
+
+        request()->validate([
+            'metode_pembayaran_id' => ['required']
+        ]);
+
+        $item = Pesanan::findOrFail($id);
+        $item->update([
+            'metode_pembayaran' => request('metode_pembayaran_id')
+        ]);
+
+        return redirect()->route('pesanan.bayar',encrypt($item->kode))->with('success','Silahkan bayar terlebih dahulu');
+    }
+
+
+    public function bayar($kode_pesanan_enkripsi)
+    {
+        $pesanan = Pesanan::where('kode',decrypt($kode_pesanan_enkripsi))->firstOrFail();
+        return view('pages.pesanan.bayar',[
+            'title' => 'Rincian Pembayaran',
+            'pesanan' => $pesanan
+        ]);
     }
 }

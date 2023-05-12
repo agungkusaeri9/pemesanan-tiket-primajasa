@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             UserTableSeeder::class,
-            JenisArmadaTableSeeder::class
+            JenisArmadaTableSeeder::class,
+            MetodePembayaranSeeder::class
         ]);
     }
 }

@@ -40,7 +40,14 @@ Route::middleware('auth')->group(function(){
     Route::get('pengaduan-barang-hilang',[PengaduanBarangHilangController::class,'index'])->name('pengaduan-barang-hilang.index');
     Route::get('pengaduan-barang-hilang/create',[PengaduanBarangHilangController::class,'create'])->name('pengaduan-barang-hilang.create');
     Route::post('pengaduan-barang-hilang/create',[PengaduanBarangHilangController::class,'store'])->name('pengaduan-barang-hilang.store');
+
+    // pesanan
     Route::post('pesanan/create',[PesananController::class,'store'])->name('pesanan.store');
+    Route::get('pesanan/{pesanan_id}/success',[PesananController::class,'success'])->name('pesanan.success');
+    Route::get('pesanan/{pesanan_id}/bayar',[PesananController::class,'bayar'])->name('pesanan.bayar');
+    Route::patch('pesanan/{pesanan_id}/edit',[PesananController::class,'update'])->name('pesanan.update');
+
+
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');
     Route::post('profile',[ProfileController::class,'update'])->name('profile.update');
 });

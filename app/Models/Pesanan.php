@@ -10,6 +10,7 @@ class Pesanan extends Model
     use HasFactory;
     protected $table  = 'pesanan';
     protected $guarded = ['id'];
+    public $dates = ['tanggal_berangkat'];
 
     public function detail()
     {
