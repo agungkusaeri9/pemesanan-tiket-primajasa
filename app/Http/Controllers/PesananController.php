@@ -16,7 +16,6 @@ class PesananController extends Controller
     public function index()
     {
         $items = Pesanan::where('user_id',auth()->id())->latest()->get();
-
         return view('pages.pesanan.index',[
             'title' => 'Riwayat Pesanan',
             'items' => $items
@@ -55,7 +54,7 @@ class PesananController extends Controller
             $pesanan = Pesanan::create([
                 'kode' => Carbon::now()->format('YmdHis') . rand(1, 200),
                 'nama' => auth()->user()->name,
-                'metode_pembayaran' => NULL,
+                'metode_pembayaran_id' => NULL,
                 'total' => $total_harga,
                 'convenience_fee' => $convencience_fee_default,
                 'handling_fee' => $handling_fee_default,
@@ -107,7 +106,7 @@ class PesananController extends Controller
 
         $item = Pesanan::findOrFail($id);
         $item->update([
-            'metode_pembayaran' => request('metode_pembayaran_id')
+            'metode_pembayaran_id' => request('metode_pembayaran_id')
         ]);
 
         return redirect()->route('pesanan.bayar',encrypt($item->kode))->with('success','Silahkan bayar terlebih dahulu');
@@ -120,6 +119,16 @@ class PesananController extends Controller
         return view('pages.pesanan.bayar',[
             'title' => 'Rincian Pembayaran',
             'pesanan' => $pesanan
+        ]);
+    }
+
+    public function show($kode)
+    {
+        $item = Pesanan::with(['detail','metode_pembayaran'])->where('user_id',auth()->id())->where('kode',$kode)->firstOrFail();
+
+        return view('pages.pesanan.show',[
+            'title' => 'Detial Tiket',
+            'item' => $item
         ]);
     }
 }

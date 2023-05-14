@@ -11,9 +11,10 @@
                        <p>Lakukan Pembayaran Sebelum @php
                            $time = $pesanan->created_at->addHour(1)->translatedFormat('d F Y H:i');
                            $time2 = $pesanan->created_at;
+                           $time3 = $pesanan->created_at->addHour(1);
                        @endphp
                        {{ $time }}</p>
-                       <p>Selesaikan Pembayaran dalam waktu {{ $time2 < Carbon\Carbon::now() ? '0' : $time2->diffInMinutes(Carbon\Carbon::now()) }} menit</p>
+                       <p>Selesaikan Pembayaran dalam waktu {{ $time2 > Carbon\Carbon::now() ? '0' : $time3->diffInMinutes(Carbon\Carbon::now()) }} menit</p>
                        <hr>
                        <h6>Kode Pembayaran</h6>
                        <span class="small">{{ $pesanan->kode }}</span>
@@ -30,7 +31,7 @@
                         <p class="text-center">Sudah melakukan transaksi?</p>
                         <p>Setelah pembayaran anda di validasi, kami akan mengirimkan e-tiket bus ke email dan SMS</p>
                         <div class="text-center mt-4">
-                            <a href="{{ route('pesanan.index') }}" class="btn btn-danger">Saya Sudah Bayar</a>
+                            <a href="{{ route('pesanan.show',$pesanan->kode) }}" class="btn btn-danger">Saya Sudah Bayar</a>
                         </div>
                     </div>
                 </div>

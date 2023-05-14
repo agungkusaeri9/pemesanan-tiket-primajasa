@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('kode')->unique();
             $table->string('nama');
-            $table->integer('metode_pembayaran')->nullable();
+            $table->foreignId('metode_pembayaran_id')->nullable()->constrained('metode_pembayaran');
             $table->bigInteger('total');
             $table->integer('status');
             $table->bigInteger('convenience_fee')->default(0);
             $table->bigInteger('handling_fee')->default(0);
-            $table->integer('armada_jadwal_id')->nullable();
+            $table->foreignId('armada_jadwal_id')->nullable()->constrained('armada_jadwal');
             $table->date('tanggal_berangkat');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();

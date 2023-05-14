@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function(){
     Route::get('pesanan/{pesanan_id}/success',[PesananController::class,'success'])->name('pesanan.success');
     Route::get('pesanan/{pesanan_id}/bayar',[PesananController::class,'bayar'])->name('pesanan.bayar');
     Route::patch('pesanan/{pesanan_id}/edit',[PesananController::class,'update'])->name('pesanan.update');
+    Route::get('pesanan/{kode}',[PesananController::class,'show'])->name('pesanan.show');
 
 
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');

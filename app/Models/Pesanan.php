@@ -27,6 +27,11 @@ class Pesanan extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
+    public function metode_pembayaran()
+    {
+        return $this->belongsTo(MetodePembayaran::class,'metode_pembayaran_id','id');
+    }
+
     public function status()
     {
         if($this->status == 0)

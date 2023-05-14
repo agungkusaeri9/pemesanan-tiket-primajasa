@@ -37,7 +37,7 @@
                                         {!! $item->status() !!}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm">Detail</a>
+                                        <a href="{{ route('pesanan.show',$item->kode) }}" class="btn btn-info btn-sm">Detail</a>
                                     </td>
                                 </tr>
                                 @endforeach
