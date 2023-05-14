@@ -30,7 +30,7 @@
                         <p class="text-center">Sudah melakukan transaksi?</p>
                         <p>Setelah pembayaran anda di validasi, kami akan mengirimkan e-tiket bus ke email dan SMS</p>
                         <div class="text-center mt-4">
-                            <a href="" class="btn btn-danger">Saya Sudah Bayar</a>
+                            <a href="{{ route('pesanan.index') }}" class="btn btn-danger">Saya Sudah Bayar</a>
                         </div>
                     </div>
                 </div>

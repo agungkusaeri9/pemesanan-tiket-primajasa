@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function(){
     Route::post('pengaduan-barang-hilang/create',[PengaduanBarangHilangController::class,'store'])->name('pengaduan-barang-hilang.store');
 
     // pesanan
+    Route::get('pesanan',[PesananController::class,'index'])->name('pesanan.index');
     Route::post('pesanan/create',[PesananController::class,'store'])->name('pesanan.store');
     Route::get('pesanan/{pesanan_id}/success',[PesananController::class,'success'])->name('pesanan.success');
     Route::get('pesanan/{pesanan_id}/bayar',[PesananController::class,'bayar'])->name('pesanan.bayar');

@@ -12,6 +12,17 @@ use App\Models\MetodePembayaran;
 
 class PesananController extends Controller
 {
+
+    public function index()
+    {
+        $items = Pesanan::where('user_id',auth()->id())->latest()->get();
+
+        return view('pages.pesanan.index',[
+            'title' => 'Riwayat Pesanan',
+            'items' => $items
+        ]);
+    }
+
     public function create($id, $dewasa, $anak, $tanggal)
     {
         $tanggal2 = Carbon::parse($tanggal)->translatedFormat('l, d F Y');

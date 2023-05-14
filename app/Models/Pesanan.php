@@ -21,4 +21,19 @@ class Pesanan extends Model
     {
         return $this->belongsTo(Jadwal::class,'armada_jadwal_id','id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
+    public function status()
+    {
+        if($this->status == 0)
+        {
+            return '<span class="badge badge-warning">Belum Bayar</span>';
+        }else{
+            return '<span class="badge badge-success">Lunas</span>';
+        }
+    }
 }
