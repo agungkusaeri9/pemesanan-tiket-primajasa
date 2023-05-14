@@ -212,38 +212,53 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header text-center">
-                            <span> {{ $jadwal->pemberangkatan }}</span>
-                            <span style="font-size:20px">
-                                &rarr;
-                            </span>
-                            <span> {{ $jadwal->tujuan }}</span>
-                        </div>
-                        <div class="card-body">
-                            <h5>{{ $tanggal2 }}</h5>
-                            <h4 class="text-primary mt-3">
-                                {{ $jadwal->armada->jenis_armada }}
-                            </h4>
-                            <div class="d-flex justify-content-between mt-4">
-                                <div class="text-center">
-                                    <h5>{{ $jadwal->jam_berangkat }}</h5>
-                                    <p>{{ $jadwal->pemberangkatan }}</p>
-                                    <h5>{{ $jadwal->terminal_pemberangkatan }}</h5>
-                                </div>
-                                <div>
-                                    <span style="font-size:30px">
-                                        &rarr;
+                   <div class="card">
+                    <div class="card-body">
+                        <section class="pt-3 pb-1 ml-3">
+                            <ul class="timeline-with-icons">
+                                <li class="timeline-item mb-2">
+                                    <span class="timeline-icon">
+                                        <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
                                     </span>
-                                </div>
-                                <div class="text-center">
-                                    <h5>{{ $jadwal->jam_sampai }}</h5>
-                                    <p>{{ $jadwal->tujuan }}</p>
-                                    <h5>{{ $jadwal->terminal_tujuan }}</h5>
-                                </div>
-                            </div>
-                        </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <h6>{{ $jadwal->jam_berangkat }}</h6>
+                                                <p class="small">
+                                                    {{ $tanggal2 }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>{{ $jadwal->pemberangkatan }}</h6>
+                                            <h6>{{ $jadwal->terminal_pemberangkatan }}</h6>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="timeline-item">
+                                    <span class="timeline-icon">
+                                        <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
+                                    </span>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <h6>{{ $jadwal->jam_sampai }}</h6>
+                                                <p class="small">
+                                                    {{ $tanggal2 }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>{{ $jadwal->tujuan }}</h6>
+                                            <h6>{{ $jadwal->terminal_tujuan }}</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
                     </div>
+                   </div>
                     <div class="card mt-2 d-tempat">
                         <div class="card-header">
                             <h6 class="text-center">Tempat Duduk</h6>
@@ -480,6 +495,34 @@
 
         .kotak-tidak-aktif:hover {
             cursor: pointer;
+        }
+        .timeline-with-icons {
+            border-left: 1px solid hsl(0, 0%, 90%);
+            position: relative;
+            list-style: none;
+        }
+
+        .timeline-with-icons .timeline-item {
+            position: relative;
+        }
+
+        .timeline-with-icons .timeline-item:after {
+            position: absolute;
+            display: block;
+            top: 0;
+        }
+
+        .timeline-with-icons .timeline-icon {
+            position: absolute;
+            left: -48px;
+            background-color: hsl(217, 88.2%, 90%);
+            color: hsl(217, 88.8%, 35.1%);
+            border-radius: 50%;
+            height: 31px;
+            width: 31px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 @endpush

@@ -66,12 +66,13 @@
                                 </ul>
                             </div>
                             <div class="col-6 justify-content-end">
-                                <a href="{{ route('pesanan.create',[
-                                    'idjadwal' => $jdw->id,
-                                    'jml_anak' => $anak,
-                                    'jml_dewasa' => $dewasa,
-                                    'tanggal' => request('tanggal')
-                                ]) }}" class="btn btn-danger">Beli Sekarang</a>
+                                <form action="{{ route('pesanan.create') }}" method="get">
+                                    <input type="hidden" name="id" value="{{ $jdw->id }}">
+                                    <input type="hidden" name="dewasa" value="{{ $dewasa }}">
+                                    <input type="hidden" name="anak" value="{{ $anak }}">
+                                    <input type="hidden" name="tanggal" value="{{ request('tanggal') }}">
+                                    <button class="btn btn-danger">Beli Sekarang</button>
+                                </form>
                             </div>
                         </div>
                     </div>

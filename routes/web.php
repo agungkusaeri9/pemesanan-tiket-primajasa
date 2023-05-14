@@ -34,7 +34,7 @@ Route::post('/jadwal-tujuan-get',[JadwalController::class,'getTujuanByPemberangk
 Route::get('tiket/info',[TiketController::class,'info'])->name('tiket.info');
 Route::get('tiket/detail/',[TiketController::class,'detail'])->name('pemesanan-tiket-detail');
 
-Route::get('pesanan/create/{idjadwal}/{jml_dewasa}/{jml_anak}/{tanggal}',[PesananController::class,'create'])->name('pesanan.create');
+Route::get('pesanan/create',[PesananController::class,'create'])->name('pesanan.create');
 
 Route::middleware('auth')->group(function(){
     Route::get('pengaduan-barang-hilang',[PengaduanBarangHilangController::class,'index'])->name('pengaduan-barang-hilang.index');

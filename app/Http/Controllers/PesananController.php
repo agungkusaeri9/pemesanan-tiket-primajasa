@@ -22,8 +22,12 @@ class PesananController extends Controller
         ]);
     }
 
-    public function create($id, $dewasa, $anak, $tanggal)
+    public function create()
     {
+        $id = request('id');
+        $dewasa = request('dewasa');
+        $anak = request('anak');
+        $tanggal = request('tanggal');
         $tanggal2 = Carbon::parse($tanggal)->translatedFormat('l, d F Y');
         $jadwal = Jadwal::where('id', $id)->first();
         return view('pages.pesanan.create', [
@@ -50,9 +54,10 @@ class PesananController extends Controller
             $convencience_fee_default = 7500;
             $handling_fee_default = 0;
             $total_harga = ($harga_tiket * $jumlah_penumpang_dewasa) + ($asuransi_perjalanan * $jumlah_penumpang_dewasa) + $convencience_fee_default + $handling_fee_default;
+            $newCode = Pesanan::getNewCode();
             // create transaksi
             $pesanan = Pesanan::create([
-                'kode' => Carbon::now()->format('YmdHis') . rand(1, 200),
+                'kode' => $newCode,
                 'nama' => auth()->user()->name,
                 'metode_pembayaran_id' => NULL,
                 'total' => $total_harga,
