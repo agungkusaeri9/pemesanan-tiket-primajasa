@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MetodePembayaranController;
+use App\Http\Controllers\Admin\PesananController as AdminPesananController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
@@ -52,4 +56,14 @@ Route::middleware('auth')->group(function(){
 
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');
     Route::post('profile',[ProfileController::class,'update'])->name('profile.update');
+});
+
+
+
+// admin
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
+    Route::resource('metode-pembayaran', MetodePembayaranController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('pesanan', AdminPesananController::class);
 });
