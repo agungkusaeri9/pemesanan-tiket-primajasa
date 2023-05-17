@@ -43,10 +43,10 @@
             </div>
         </div>
         <div class="row justify-content-center mt-4 mb-4">
-            <div class="col-md-4 align-item-center">
+            <div class="col-md-4 align-self-center">
                 <h5>Fitur</h5>
                 <h3 class="text-primary">Mengapa Primajasa Lebih Unggul dari yang lain?</h3>
-                <p>
+                <p class="">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illum laborum quas asperiores quae eum, doloremque itaque, ipsum odio amet veritatis, sit distinctio facilis possimus iure incidunt mollitia voluptatum nesciunt voluptates beatae animi similique ex! Possimus, blanditiis omnis. Officiis facere quas libero nam, voluptatibus eligendi praesentium nemo dolorum ab animi!
                 </p>
                 <a href="" class="btn btn-danger">Selengkapnya</a>
@@ -57,7 +57,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5>Rute Cepat</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque nemo voluptates, soluta error dolorem dignissimos repudiandae cumque explicabo voluptatum.</p>
+                                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque nemo voluptates, soluta error dolorem dignissimos repudiandae cumque explicabo voluptatum.</p>
                             </div>
                         </div>
                     </div>

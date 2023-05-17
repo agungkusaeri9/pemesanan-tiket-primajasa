@@ -14,4 +14,5 @@ class Jadwal extends Model
     public function armada(){
         return $this->belongsTo(JenisArmada::class,'jenis_armada_id','id');
     }
+
 }

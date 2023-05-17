@@ -12,4 +12,4 @@
     <link rel="stylesheet" href="{{ asset('assets/be/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/be/css/components.css') }}">
     @stack('styles')
-    @vite('resources/js/app.js')
+

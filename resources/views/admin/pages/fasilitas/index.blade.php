@@ -2,10 +2,10 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Data Pesanan</h1>
+            <h1>Data Fasilitas {{ $armada->jenis_armada }}</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item">Data Pesanan</div>
+                <div class="breadcrumb-item">Data Fasilitas {{ $armada->jenis_armada }}</div>
             </div>
         </div>
         <div class="section-body">
@@ -13,18 +13,14 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-
+                            <a href="{{ route('admin.fasilitas.create') }}?jenis_armada_id={{ $armada->id }}" class="btn btn-sm btn-primary mb-3"><i
+                                    class="fas fa-plus"></i> Tambah Data</a>
                             <table class="table table-striped table-hover" id="dTable">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Kode</th>
-                                        <th>Nama</th>
-                                        <th>Convencience Fee</th>
-                                        <th>Handling Fee</th>
-                                        <th>Pembayaran</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+                                        <th>Ikon</th>
+                                        <th>Fasilitas</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -32,23 +28,23 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->kode }}</td>
-                                            <td>{{ $item->user->name ?? '-' }}</td>
-                                            <td>Rp {{ number_format($item->convenience_fee,0,',','.') }}</td>
-                                            <td>Rp {{ number_format($item->handling,0,',','.') }}</td>
-                                            <td>{{ $item->metode_pembayaran->jenis ?? '-' }}</td>
-                                            <td>Rp {{ number_format($item->total,0,',','.') }}</td>
-
-                                            <td>{!! $item->status() !!}</td>
                                             <td>
-                                                <a href="{{ route('admin.pesanan.edit', $item->id) }}"
+                                                <img src="{{ $item->icon() }}" class="img-fluid" style="max-height:80px"
+                                                    alt="">
+                                            </td>
+                                            <td>{{ $item->fasilitas }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.fasilitas.edit', $item->id) }}?jenis_armada_id={{ $armada->id }}"
                                                     class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="" method="post"
-                                                    class="d-inline" id="formDelete">
+
+                                                <form action="" method="post" class="d-inline" id="formDelete">
                                                     @csrf
                                                     @method('delete')
-                                                    <button data-action="{{ route('admin.pesanan.destroy',$item->id) }}" class="btn btn-sm btn-danger btnDelete"><i
-                                                            class="fas fa-trash"></i> Hapus</button>
+                                                    <input type="hidden" name="jenis_armada_id" value="{{ $armada->id }}">
+                                                    <button
+                                                        data-action="{{ route('admin.fasilitas.destroy', $item->id) }}"
+                                                        class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i>
+                                                        Hapus</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -75,7 +71,7 @@
     <script>
         $(function() {
             $('#dTable').DataTable();
-            $('body').on('click','.btnDelete', function(e) {
+            $('body').on('click', '.btnDelete', function(e) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -89,7 +85,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let action = $(this).data('action');
-                        $('#formDelete').attr('action',action);
+                        $('#formDelete').attr('action', action);
                         $('#formDelete').submit();
                     }
                 })

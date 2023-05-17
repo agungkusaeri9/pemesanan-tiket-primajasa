@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row mt-3">
 
-                                        <div class="col-md-3 align-self-center">
+                                        {{-- <div class="col-md-3 align-self-center">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="is_pulang" name="pulang">
@@ -43,16 +43,16 @@
                                                     Pulang
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
+                                        </div> --}}
+                                        <div class="col-md-4">
                                             <input type="text" name="dewasa" class="form-control"
                                                 placeholder="Jml Dewasa">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <input type="text" name="anak_anak" class="form-control"
                                                 placeholder="Jml Anak">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <button class="btn py-2 btn-danger btn-block">Cari</button>
                                         </div>
                                     </div>

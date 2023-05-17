@@ -16,4 +16,9 @@ class Fasilitas extends Model
         $icon = $this->icon ? asset('storage/' . $this->icon) : asset('assets/fe/img/icon-default.svg');
         return $icon;
     }
+
+    public function armada()
+    {
+        return $this->belongsTo(JenisArmada::class,'jenis_armada_id','id');
+    }
 }

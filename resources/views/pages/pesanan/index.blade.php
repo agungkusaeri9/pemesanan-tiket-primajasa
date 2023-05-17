@@ -12,6 +12,7 @@
 
                         <div class="">
                             <h3 class="mb-4 text-center">Riwayat Pesanan</h3>
+                           <div class="table-responsive">
                             <table class="table table-hover table-striped">
                                 <tr>
                                     <th>#</th>
@@ -42,6 +43,7 @@
                                 </tr>
                                 @endforeach
                             </table>
+                           </div>
                         </div>
                     </div>
                 </div>

@@ -23,6 +23,10 @@
                 <a class="nav-link" href="{{ route('admin.pesanan.index') }}"><i class="fas fa-folder"></i>
                     <span>Pesanan</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.jenis-armada.index') }}"><i class="fas fa-folder"></i>
+                    <span>Jenis Armada</span></a>
+            </li>
         </ul>
 
     </aside>

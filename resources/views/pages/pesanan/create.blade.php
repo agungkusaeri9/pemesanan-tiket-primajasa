@@ -16,85 +16,54 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>
+
+                            @auth
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>
+                                            @auth
+                                                {{ auth()->user()->name ?? '-' }}
+                                            @endauth
+                                        </h5>
+                                    </div>
+                                    <div class="card-body row">
                                         @auth
-                                            {{ auth()->user()->name ?? '-' }}
+                                            <div class="col-md">
+                                                <div class='form-group mb-3'>
+                                                    <label for='nomor_telepon' class='mb-2'>No. HP</label>
+                                                    <input type='text' name='nomor_telepon'
+                                                        class='form-control @error('nomor_telepon') is-invalid @enderror'
+                                                        value='{{ auth()->user()->nomor_telepon }}'>
+                                                    @error('nomor_telepon')
+                                                        <div class='invalid-feedback'>
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md">
+                                                <div class='form-group mb-3'>
+                                                    <label for='email' class='mb-2'>Email</label>
+                                                    <input type='text' name='email'
+                                                        class='form-control @error('email') is-invalid @enderror'
+                                                        value='{{ auth()->user()->email }}' readonly>
+                                                    @error('email')
+                                                        <div class='invalid-feedback'>
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         @else
-                                            Detail Profil (untuk e-tiket/voucher)
                                         @endauth
-                                    </h5>
+                                    </div>
                                 </div>
-                                <div class="card-body row">
-                                    @auth
-                                        <div class="col-md">
-                                            <div class='form-group mb-3'>
-                                                <label for='nomor_telepon' class='mb-2'>No. HP</label>
-                                                <input type='text' name='nomor_telepon'
-                                                    class='form-control @error('nomor_telepon') is-invalid @enderror'
-                                                    value='{{ auth()->user()->nomor_telepon }}'>
-                                                @error('nomor_telepon')
-                                                    <div class='invalid-feedback'>
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class='form-group mb-3'>
-                                                <label for='email' class='mb-2'>Email</label>
-                                                <input type='text' name='email'
-                                                    class='form-control @error('email') is-invalid @enderror'
-                                                    value='{{ auth()->user()->email }}' readonly>
-                                                @error('email')
-                                                    <div class='invalid-feedback'>
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="col-md-12">
-                                            <div class='form-group mb-3'>
-                                                <label for='nama_lengkap' class='mb-2'>Nama Lengkap</label>
-                                                <input type='text' name='nama_lengkap'
-                                                    class='form-control @error('nama_lengkap') is-invalid @enderror'
-                                                    value=''>
-                                                @error('nama_lengkap')
-                                                    <div class='invalid-feedback'>
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class='form-group mb-3'>
-                                                <label for='no_hp' class='mb-2'>No. HP</label>
-                                                <input type='text' name='no_hp'
-                                                    class='form-control @error('no_hp') is-invalid @enderror' value=''>
-                                                @error('no_hp')
-                                                    <div class='invalid-feedback'>
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class='form-group mb-3'>
-                                                <label for='email' class='mb-2'>Email</label>
-                                                <input type='text' name='email'
-                                                    class='form-control @error('email') is-invalid @enderror'>
-                                                @error('email')
-                                                    <div class='invalid-feedback'>
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    @endauth
+                            @else
+                                <div class="alert alert-warning">
+                                    <p>Login/Register Terlebih Dahulu!</p>
+                                    <a href="{{ route('login') }}" class="btn btn-danger btn-sm">Login</a>
                                 </div>
-                            </div>
+                            @endauth
                         </div>
                     </div>
                     <div class="row mt-4">
@@ -157,9 +126,10 @@
                                                 <div class='form-group mb-3'>
                                                     <label for='penumpang_nomor_kursi' class='mb-2'>Nomor Tempat
                                                         Duduk</label>
-                                                    <input type='text' id="penumpang_nomor_kursi{{ $i }}" name='penumpang_nomor_kursi[]'
+                                                    <input type='text' id="penumpang_nomor_kursi{{ $i }}"
+                                                        name='penumpang_nomor_kursi[]'
                                                         class='penumpang_nomor_kursi{{ $i }} form-control @error('penumpang_nomor_kursi') is-invalid @enderror'
-                                                        required>
+                                                        required placeholder="Contoh. A1">
                                                     @error('penumpang_nomor_kursi')
                                                         <div class='invalid-feedback'>
                                                             {{ $message }}
@@ -212,53 +182,53 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                   <div class="card">
-                    <div class="card-body">
-                        <section class="pt-3 pb-1 ml-3">
-                            <ul class="timeline-with-icons">
-                                <li class="timeline-item mb-2">
-                                    <span class="timeline-icon">
-                                        <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
-                                    </span>
+                    <div class="card">
+                        <div class="card-body">
+                            <section class="pt-3 pb-1 ml-3">
+                                <ul class="timeline-with-icons">
+                                    <li class="timeline-item mb-2">
+                                        <span class="timeline-icon">
+                                            <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
+                                        </span>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="">
-                                                <h6>{{ $jadwal->jam_berangkat }}</h6>
-                                                <p class="small">
-                                                    {{ $tanggal2 }}</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <h6>{{ $jadwal->jam_berangkat }}</h6>
+                                                    <p class="small">
+                                                        {{ $tanggal2 }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6>{{ $jadwal->pemberangkatan }}</h6>
+                                                <h6>{{ $jadwal->terminal_pemberangkatan }}</h6>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <h6>{{ $jadwal->pemberangkatan }}</h6>
-                                            <h6>{{ $jadwal->terminal_pemberangkatan }}</h6>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
 
-                                <li class="timeline-item">
-                                    <span class="timeline-icon">
-                                        <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
-                                    </span>
+                                    <li class="timeline-item">
+                                        <span class="timeline-icon">
+                                            <i class="fas fa-bullet text-primary fa-sm fa-fw"></i>
+                                        </span>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="">
-                                                <h6>{{ $jadwal->jam_sampai }}</h6>
-                                                <p class="small">
-                                                    {{ $tanggal2 }}</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <h6>{{ $jadwal->jam_sampai }}</h6>
+                                                    <p class="small">
+                                                        {{ $tanggal2 }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6>{{ $jadwal->tujuan }}</h6>
+                                                <h6>{{ $jadwal->terminal_tujuan }}</h6>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <h6>{{ $jadwal->tujuan }}</h6>
-                                            <h6>{{ $jadwal->terminal_tujuan }}</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </section>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
                     </div>
-                   </div>
                     <div class="card mt-2 d-tempat">
                         <div class="card-header">
                             <h6 class="text-center">Tempat Duduk</h6>
@@ -456,6 +426,7 @@
         .kotak-aktif {
             background: #294CC8;
         }
+
         .kotak-dipilih {
             background: #90242C;
         }
@@ -496,6 +467,7 @@
         .kotak-tidak-aktif:hover {
             cursor: pointer;
         }
+
         .timeline-with-icons {
             border-left: 1px solid hsl(0, 0%, 90%);
             position: relative;
@@ -533,15 +505,20 @@
 
                 $('body').on('click', '.btnPilihKursi', function() {
                     let penumpang_index = $(this).data('id');
-                  $('#modalKursi').modal('show');
+                    console.log(penumpang_index);
+                    $('#modalKursi').modal('show');
                     $('.d-tempat').removeClass('d-none');
-                    $('body').on('click','.kotak-tidak-aktif', function() {
+                    $('.kotak-tidak-aktif').on('click', function() {
                         console.log(penumpang_index);
                         let nomor = $(this).data('nomor');
                         $(`#modalKursi #${nomor}`).addClass('kotak-dipilih');
-                        $(`#penumpang_nomor_kursi${penumpang_index}`).val(nomor);
+                        $(`.penumpang_nomor_kursi${penumpang_index}`).val(nomor);
                         $('#modalKursi').modal('hide');
                     })
+                })
+
+                $('#modalKursi').on('hidden.bs.modal', function(event) {
+
                 })
             })
         })

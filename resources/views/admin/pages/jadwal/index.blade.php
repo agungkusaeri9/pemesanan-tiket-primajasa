@@ -2,10 +2,10 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Data Pesanan</h1>
+            <h1>Data Jadwal {{ $armada->jenis_armada }}</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item">Data Pesanan</div>
+                <div class="breadcrumb-item">Data Jadwal {{ $armada->jenis_armada }}</div>
             </div>
         </div>
         <div class="section-body">
@@ -13,18 +13,18 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-
+                            <a href="{{ route('admin.jadwal.create') }}?jenis_armada_id={{ $armada->id }}" class="btn btn-sm btn-primary mb-3"><i
+                                    class="fas fa-plus"></i> Tambah Data</a>
                             <table class="table table-striped table-hover" id="dTable">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Kode</th>
-                                        <th>Nama</th>
-                                        <th>Convencience Fee</th>
-                                        <th>Handling Fee</th>
-                                        <th>Pembayaran</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+                                        <th>Pemberangkatan</th>
+                                        <th>Tujuan</th>
+                                        <th>Jam Berangkat</th>
+                                        <th>Jam Sampai</th>
+                                        <th>Harga Dewasa</th>
+                                        <th>Harga Anak</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -32,23 +32,24 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->kode }}</td>
-                                            <td>{{ $item->user->name ?? '-' }}</td>
-                                            <td>Rp {{ number_format($item->convenience_fee,0,',','.') }}</td>
-                                            <td>Rp {{ number_format($item->handling,0,',','.') }}</td>
-                                            <td>{{ $item->metode_pembayaran->jenis ?? '-' }}</td>
-                                            <td>Rp {{ number_format($item->total,0,',','.') }}</td>
-
-                                            <td>{!! $item->status() !!}</td>
+                                            <td>{{ $item->terminal_pemberangkatan . ' - ' . $item->pemberangkatan }}</td>
+                                            <td>{{ $item->terminal_tujuan . ' - ' . $item->tujuan }}</td>
+                                            <td>{{ $item->jam_berangkat }}</td>
+                                            <td>{{ $item->jam_sampai }}</td>
+                                            <td>{{ $item->harga_dewasa }}</td>
+                                            <td>{{ $item->harga_anak_anak }}</td>
                                             <td>
-                                                <a href="{{ route('admin.pesanan.edit', $item->id) }}"
+                                                <a href="{{ route('admin.jadwal.edit', $item->id) }}?jenis_armada_id={{ $armada->id }}"
                                                     class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="" method="post"
-                                                    class="d-inline" id="formDelete">
+
+                                                <form action="" method="post" class="d-inline" id="formDelete">
                                                     @csrf
                                                     @method('delete')
-                                                    <button data-action="{{ route('admin.pesanan.destroy',$item->id) }}" class="btn btn-sm btn-danger btnDelete"><i
-                                                            class="fas fa-trash"></i> Hapus</button>
+                                                    <input type="hidden" name="jenis_armada_id" value="{{ $armada->id }}">
+                                                    <button
+                                                        data-action="{{ route('admin.jadwal.destroy', $item->id) }}"
+                                                        class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i>
+                                                        Hapus</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -75,7 +76,7 @@
     <script>
         $(function() {
             $('#dTable').DataTable();
-            $('body').on('click','.btnDelete', function(e) {
+            $('body').on('click', '.btnDelete', function(e) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -89,7 +90,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let action = $(this).data('action');
-                        $('#formDelete').attr('action',action);
+                        $('#formDelete').attr('action', action);
                         $('#formDelete').submit();
                     }
                 })
